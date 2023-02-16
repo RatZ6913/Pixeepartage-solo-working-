@@ -29,4 +29,4 @@ ob_start();
   <div>
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . './../templates/mainTemp.php' ;
+require_once __DIR__ . './../templates/mainTemp.php';
