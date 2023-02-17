@@ -1,5 +1,6 @@
 <?php
- require_once __DIR__ . './src/models/autoload.php';
+session_start();
+require_once __DIR__ . './src/models/autoload.php';
 require_once __DIR__ . './src/controllers/homePageCont.php';
 
 
@@ -12,11 +13,9 @@ if (!empty($_GET) && isset($_GET)) {
         require_once __DIR__ . './src/controllers/registerCont.php';
         getViewRegister();
     }
-   
-
-
 } else {
     getViewHomePage();
 }
 
 
+var_dump($_SESSION);

@@ -30,11 +30,12 @@ class User extends Database
     return $userRegistered->execute($user);
   }
 
-  public function getHashedPassword(string $pseudo) {
-    $checkIfPasswordOkExist = $this->pdo->prepare("SELECT password FROM users WHERE pseudo = :pseudo");
+  public function checkIfMatchUser(string $pseudo) {
+    $checkIfPasswordOkExist = $this->pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
     $checkIfPasswordOkExist->BindParam(':pseudo', $pseudo);
     $checkIfPasswordOkExist->execute();
     return $return = $checkIfPasswordOkExist->fetch();
   }
 
 }
+

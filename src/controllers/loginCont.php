@@ -39,9 +39,14 @@ function getViewLogin()
     if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
       $user = new User();
 
-      if ($user->getHashedPassword($pseudo) == true) {
-        $checkPassword = $user->getHashedPassword($pseudo);
+      if ($user->checkIfMatchUser($pseudo) == true) {
+        $checkPassword = $user->checkIfMatchUser($pseudo);
         if (password_verify($password, $checkPassword['password'])) {
+          $_SESSION = [
+            'id' => $user->checkIfMatchUser($pseudo)['id'],
+            'pseudo' => $user->checkIfMatchUser($pseudo)['pseudo'],
+            'avatar' => $user->checkIfMatchUser($pseudo)['avatar']
+          ];
           header('location: ./');
         }
       }
