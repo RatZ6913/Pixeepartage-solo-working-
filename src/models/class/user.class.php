@@ -51,11 +51,17 @@ class User extends Database
     return $userRegistered->execute($user);
   }
 
+<<<<<<< main
   function checkIfPasswordOK( $pseudo , $password)
   {
     $checkIfPasswordOkExist = $this->pdo->prepare("SELECT password FROM users WHERE pseudo=:pseudo OR email=:email");
     $checkIfPasswordOkExist->BindParam(":pseudo", "$pseudo");
     $checkIfPasswordOkExist->BindParam(":email", "$pseudo");
+=======
+  public function checkIfMatchUser(string $pseudo) {
+    $checkIfPasswordOkExist = $this->pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+    $checkIfPasswordOkExist->BindParam(':pseudo', $pseudo);
+>>>>>>> Update  Sessions
     $checkIfPasswordOkExist->execute();
 
     $return = $checkIfPasswordOkExist->fetchAll();
@@ -86,4 +92,9 @@ class User extends Database
   }
 }
 
+<<<<<<< main
 // $user = new User();
+=======
+}
+
+>>>>>>> Update  Sessions

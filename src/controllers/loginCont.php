@@ -35,6 +35,7 @@ function getViewLogin(){
             $errors['error'] = ERROR_PATTERN;
         }
 
+<<<<<<< main
         if (empty(array_filter($errors , fn ($e) => $e !== ''))){
           
             $user = new User();
@@ -50,6 +51,17 @@ function getViewLogin(){
                     header('location: ./');
                 }
             }
+=======
+      if ($user->checkIfMatchUser($pseudo) == true) {
+        $checkPassword = $user->checkIfMatchUser($pseudo);
+        if (password_verify($password, $checkPassword['password'])) {
+          $_SESSION = [
+            'id' => $user->checkIfMatchUser($pseudo)['id'],
+            'pseudo' => $user->checkIfMatchUser($pseudo)['pseudo'],
+            'avatar' => $user->checkIfMatchUser($pseudo)['avatar']
+          ];
+          header('location: ./');
+>>>>>>> Update  Sessions
         }
     }
 
