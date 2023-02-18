@@ -3,7 +3,7 @@ session_start();
 var_dump($_SESSION);
 
 
-require_once __DIR__ . './src/controllers/homePageCont.php';
+require_once __DIR__ . './src/controllers/mainControllers.php';
 
 
 if (!empty($_GET) && isset($_GET)) {
