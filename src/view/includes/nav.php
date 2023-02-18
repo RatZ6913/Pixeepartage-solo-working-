@@ -10,7 +10,7 @@
       <li><a href="./">Accueil</a> </li>
       <li><a href="./?action=pictures">Photos</a> </li>
       <li><a href="./?action=videos">Vidéos</a> </li>
-      <?= loginOrRegister(); ?>
+      <?= profilUser(); ?>
     </ul>
   </nav>
 </header>

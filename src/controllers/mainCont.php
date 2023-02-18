@@ -5,11 +5,25 @@ function getViewHomePage()
   require_once __DIR__ . './../templates/homePageTemp.php';
 }
 
-function loginOrRegister()
+function btnLoginRegister()
 {
   if (!isset($_SESSION['pseudo']) && empty($_SESSION['pseudo'])) {
-    echo $btnLogin = "<li><a href=\"./?action=login\" class=\"button\">Se connecter</a></li>";
-    echo $btnregister = "<li><a href=\"./?action=register\" class=\"button\">S'inscrire</a></li>";
+    echo "<li><a href=\"./?action=login\" class=\"button\">Se connecter</a></li>";
+    echo "<li><a href=\"./?action=register\" class=\"button\">S'inscrire</a></li>";
+  }
+}
+
+function getViewDisconnect(){
+    require_once __DIR__ . './../view/disconnectView.php';
+}
+
+function profilUser(){
+  if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
+    echo '<li><img src="" alt=""></li>';
+    echo '</li><a href="./?action=editProfil">'. $_SESSION['pseudo'] .'</a></li>';
+    echo '</li><a href="./?action=disconnect">Se déconnecter</a></li>';
+  } else {
+    btnLoginRegister();
   }
 }
 
