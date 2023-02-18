@@ -1,10 +1,8 @@
 <?php
 
-// require_once __DIR__ . './../controllers/loginCont.php';
-
 ob_start();
 ?>
-<link rel="stylesheet" href="./public/css/homepage.style.css" />
+  <link rel="stylesheet" href="./public/css/form.style.css" />
 
 <div id="formConnect">
   <h1>Inscription</h1>
@@ -30,3 +28,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require_once __DIR__ . './../templates/mainTemp.php' ;
+

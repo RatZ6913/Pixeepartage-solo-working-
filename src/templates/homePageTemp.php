@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
 
-<head>
-  <meta charset="UTF-8" />
-  <meta description="Site pour afficher vos images et vos vidéos et pouvoir les comparer avec vos amis.">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./public/css/styleLogin.css" />
-  <!-- <title><?= $title ?></title> -->
-</head>
+$title = 'Page d\'accueil';
+require_once __DIR__ . './../../src/view/includes/head.php';
+?>
 
 <body>
+  <?php require_once __DIR__ . './../../src/view/includes/nav.php'; ?>
+
   <section>
     <figure>
-      <img src="./public/images/import/landscape.png" alt="landscape">
+      <img src="/public/images/import/landscape.png" alt="landscape">
     </figure>
     <div id="introduction">
       <h2>le partage en toute libertée</h2>
-      <p id="welcome">bienvenue sur pixopartage,</p>
+      <p id="welcome">bienvenue sur PixeePartage,</p>
       <p id="join">venez partager vos photos et vidéos <br>sur notre réseaux social innovant !</p>
-      <?= loginOrRegister(); ?>
     </div>
   </section>
 
@@ -35,7 +29,7 @@
     <img src="image/icons8-mac-os-50.png" alt="logo apple">
     <img src="image/icons8-github-50.png" alt="logo github">
 
-    <p>&copy; pixoPartage 2023</p>
+    <p>&copy; PixeePartage 2023</p>
   </footer>
 </body>
 

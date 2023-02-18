@@ -1,10 +1,8 @@
 <?php
 
-// require_once __DIR__ . './../controllers/loginCont.php';
-
 ob_start();
 ?>
-<link rel="stylesheet" href="./public/css/styleLogin.css" />
+    <link rel="stylesheet" href="./public/css/form.style.css" />
 
 <div id="formConnect">
         <h1>Connexion</h1>

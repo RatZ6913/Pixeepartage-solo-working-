@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./public/css/styleLogin.css">
-</head>
+<?php
+
+$_GET['action'] === 'login' ? $title = 'Page de connexion' : $title = 'Page d\'inscription';
+require_once __DIR__ . './../../src/view/includes/head.php';
+?>
+
 <body>
-    <header>
-      <div id="nav">
-       <div id="align"> 
-        <img src="./public/images/import/logo.png" alt="logo">
-        <h1> pixopartage</h1>
-      </div>
-        <ul>
-          <li><a href="./">Accueil</a> </li>
-          <li><a href="./?action=pictures">Photos</a> </li>
-          <li><a href="./?action=videos">Vidéos</a> </li>
-        </ul>
-      </div>
-    </header>
+  <?php
+  require_once __DIR__ . './../../src/view/includes/nav.php';
+  ?>
 
-    <?= $content ?? '' ?>
+  <?= $content ?? '' ?>
 
-    <!-- footer -->
+  <!-- footer -->
 </body>
-</html>
 
+</html>

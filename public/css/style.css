@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+
+nav {
+  max-width: 1400px;
+  background-color: transparent;
+  height: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  right: 0;
+}
+
+#nav ul li:hover,
+#nav ul li:active {
+  background-color: #f09e1f;
+  opacity: 0.66;
+  color: white;
+  box-shadow: 10px 10px 10px black;
+}
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  
+}
+
+header ul {
+  display: flex;
+  height: 100%;
+}
+
+header li {
+  padding: 20px;
+  list-style: none;
+  border-left: 1px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+header img {
+  width: 60px;
+}
+
+h1 {
+  color: #f09e1f;
+}
+
+#align {
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  margin-top: 30vw;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+figure img {
+  width: 100%;
+  height: 45vw;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+h2 {
+  text-shadow: 1px 1px #07F054(243, 151, 3);
+  margin-bottom: 20px;
+  font-size: 40px;
+  letter-spacing: 6px;
+  color: #0da33f;
+  text-transform: capitalize;
+}
+
+section {
+  position: relative;
+}
+
+#introduction {
+  margin-top: 4vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #5405a3;
+}
+
+button {
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #f09e1f;
+  border: 2px solid white;
+  padding: 10px;
+  text-transform: uppercase;
+  color: white;
+}
+
+button:hover {
+  background-color: white;
+  color: #f09e1f;
+  font-weight: 900;
+}
+
+#join {
+  margin-bottom: 130px;
+  color: #871ff0;
+  font-weight: 900;
+}
+
+.button {
+  width: 160px;
+}
+
+

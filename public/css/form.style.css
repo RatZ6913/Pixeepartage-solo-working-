@@ -1,15 +1,9 @@
-*{
-    padding: 0px;
-    margin: 0px;
-}
-
 #formConnect {
     display: flex;
     flex-direction: column;
     width: 20%;
     margin: auto;
     padding: 30px;
-    
     border-radius: 10px;
     text-align: center;
     margin-top: 70px;
@@ -20,7 +14,6 @@
 #form {
     display: flex;
     flex-direction: column;
-    
 }
 
 #form p {
@@ -52,4 +45,4 @@
 
 .para {
     padding : 5px 20px 5px 20px;
-}
+} 

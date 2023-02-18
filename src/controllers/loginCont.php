@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . './../models/autoload.php';
-require_once __DIR__ . './../models/class/user.class.php';
 
 const ERROR_CONNECT = "Vos identifiants ou mots de passes sont incorrects";
 const ERROR_EMPTY = "Veuillez rentrez vos informations";
@@ -9,7 +8,6 @@ const ERROR_PATTERN = "Caractères invalides";
 
 function getViewLogin()
 {
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $patternLetterNumbers = '/^[a-zA-Z0-9]+$/';
