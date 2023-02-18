@@ -42,6 +42,7 @@ function getViewLogin()
                 $_SESSION = [
                     'id' => $user->getInfoUser($pseudo)['id'],
                     'pseudo' => $user->getInfoUser($pseudo)['pseudo'],
+                    'email' => $user->getInfoUser($pseudo)['email'],
                     'avatar' => $user->getInfoUser($pseudo)['avatar']
                 ];
                 header('location: ./');

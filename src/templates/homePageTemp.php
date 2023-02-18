@@ -5,7 +5,7 @@ require_once __DIR__ . './../../src/view/includes/head.php';
 ?>
 
 <body>
-  <?php require_once __DIR__ . './../../src/view/includes/nav.php'; ?>
+   <?php require_once __DIR__ . './../../src/view/includes/nav.php'; ?>
 
   <section>
     <figure>
@@ -23,14 +23,7 @@ require_once __DIR__ . './../../src/view/includes/head.php';
   </section>
 
   <?= $content ?? '' ?>
-  <footer>
-    <img src="image/icons8-twitter-50.png" alt="logo twitter">
-    <img src="image/icons8-google-play-48.png" alt="logo googleplay">
-    <img src="image/icons8-mac-os-50.png" alt="logo apple">
-    <img src="image/icons8-github-50.png" alt="logo github">
-
-    <p>&copy; PixeePartage 2023</p>
-  </footer>
+  <?php require_once __DIR__ . './../../src/view/includes/footer.php'; ?>
 </body>
 
 </html>
