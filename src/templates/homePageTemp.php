@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./public/css/homepage.style.css" />
+    <link rel="stylesheet" href="./public/css/styleLogin.css" />
     <!-- <title><?= $title ?></title> -->
   </head>
 
@@ -23,7 +23,7 @@
       <a href="./?action=register" class="button">s'inscire</a>
     </div>
     </section>
-    <?= $content ?>
+    <?= $content ?? '' ?>
     <footer>
       <img src="image/icons8-twitter-50.png" alt="logo twitter">
       <img src="image/icons8-google-play-48.png" alt="logo googleplay">

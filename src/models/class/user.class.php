@@ -15,26 +15,6 @@ class User extends Database
     parent::__construct();
   }
 
-  // public function checkIfUserExist($pseudo, $mail)
-  // {
-  //   $checkIfUserExist = $this->pdo->prepare("SELECT pseudo, mail FROM users ");
-  //   $checkIfUserExist->execute();
-  //   $checkIfExist = $checkIfUserExist->fetchAll();
-  //   $result = false;
-  //   for ($i=0; $i < count($checkIfExist); $i++) { 
-  //     if($pseudo == $checkIfExist[$i]['pseudo'] || 
-  //     $pseudo == $checkIfExist[$i]['mail']){
-  //       $result = true;
-  //     }
-  //   }
-  //     for ($i=0; $i < count($checkIfExist); $i++) { 
-  //       if($mail == $checkIfExist[$i]['pseudo'] || 
-  //       $mail == $checkIfExist[$i]['mail']){
-  //         $result = true;
-  //       }
-  //   }
-  //   return $result;
-  // }
   public function checkIfUserExist(string $pseudo, string $mail)
   {
     $checkIfUserExist = $this->pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo OR mail = :mail");
@@ -45,56 +25,26 @@ class User extends Database
   }
 
 
-  public function userRegistered($user)
+  public function userRegistered(array $user)
   {
     $userRegistered = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password) VALUES (:pseudo, :mail, :password)");
     return $userRegistered->execute($user);
   }
 
-<<<<<<< main
-  function checkIfPasswordOK( $pseudo , $password)
-  {
-    $checkIfPasswordOkExist = $this->pdo->prepare("SELECT password FROM users WHERE pseudo=:pseudo OR email=:email");
-    $checkIfPasswordOkExist->BindParam(":pseudo", "$pseudo");
-    $checkIfPasswordOkExist->BindParam(":email", "$pseudo");
-=======
   public function checkIfMatchUser(string $pseudo) {
-    $checkIfPasswordOkExist = $this->pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
-    $checkIfPasswordOkExist->BindParam(':pseudo', $pseudo);
->>>>>>> Update  Sessions
-    $checkIfPasswordOkExist->execute();
-
-    $return = $checkIfPasswordOkExist->fetchAll();
-    $result = false;
-
-    if ($password == $return[0]["password"]) {
-      $result = true;
-    }
-    return $result;
+    $checkIfMatchUser = $this->pdo->prepare("SELECT password FROM users WHERE pseudo = :pseudo");
+    $checkIfMatchUser->BindParam(':pseudo', $pseudo);
+    $checkIfMatchUser->execute();
+    return $checkIfMatch = $checkIfMatchUser->fetch();
   }
 
-  // function getHashePassword($pseudo){
-  //   $getHashePassword = $this->pdo->prepare("SELECT password FROM users WHERE pseudo=:pseudo");
-  //   $getHashePassword->BindParam(":pseudo", $pseudo);
-  //   $getHashePassword->execute();
-  //   $return = $getHashePassword->fetchAll();
-
-  //   return $return ;
-  // }
-
-  function getInfoUser($pseudo){
+  function getInfoUser(string $pseudo){
     $getInfoUser = $this->pdo->prepare("SELECT * FROM users WHERE pseudo=:pseudo");
     $getInfoUser->BindParam(":pseudo", $pseudo);
     $getInfoUser->execute();
-    $getInfoUser = $getInfoUser->fetchAll();
-
-    return $getInfoUser;
+    return $getInfoUser = $getInfoUser->fetch();
   }
 }
 
-<<<<<<< main
-// $user = new User();
-=======
-}
 
->>>>>>> Update  Sessions
+

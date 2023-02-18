@@ -4,7 +4,7 @@
 
 ob_start();
 ?>
-<link rel="stylesheet" href="./public/css/homepage.style.css" />
+<link rel="stylesheet" href="./public/css/styleLogin.css" />
 
 <div id="formConnect">
         <h1>Connexion</h1>
@@ -22,6 +22,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require_once __DIR__ . './../templates/mainTemp.php' ;
-
-
 

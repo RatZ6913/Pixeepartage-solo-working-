@@ -22,7 +22,7 @@
       </div>
     </header>
 
-    <?= $content ?>
+    <?= $content ?? '' ?>
 
     <!-- footer -->
 </body>
