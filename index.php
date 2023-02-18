@@ -7,23 +7,25 @@ require_once __DIR__ . './src/models/autoload.php';
 require_once __DIR__ . './src/controllers/mainCont.php';
 
 try {
-  if (htmlspecialchars(!empty($_SERVER['PHP_SELF'] === '/index.php'))
-  && empty($_GET)) {
-    getViewHomePage();
-    
-      if (!empty($_GET['action'] === 'login')) {
-        require_once __DIR__ . './src/controllers/loginCont.php';
-        getViewLogin();
-      } else if (!empty($_GET['action'] === 'register')) {
-        require_once __DIR__ . './src/controllers/registerCont.php';
-        getViewRegister();
-      } else if (!empty($_GET['action'] === 'disconnect')) {
-        getViewDisconnect();
-      }
+
+  if(!empty($_GET) && isset($_GET)){
+    $_GET['action'] = $_GET['action'] ?? '';
+    if (!empty($_GET['action'] === 'login')) {
+      require_once __DIR__ . './src/controllers/loginCont.php';
+      getViewLogin();
+    } else if (!empty($_GET['action'] === 'register')) {
+      require_once __DIR__ . './src/controllers/registerCont.php';
+      getViewRegister();
+    } else if (!empty($_GET['action'] === 'disconnect')) {
+      getViewDisconnect();
+    } else {
+      throw new Exception(getViewErrorPage());
+    }
 
   } else {
-    getViewErrorPage();
+    getViewHomePage();
   }
+
 } catch (Exception $e) {
   throw new Exception($e->getMessage());
 }
