@@ -145,3 +145,26 @@ button:hover {
 }
 
 
+footer {
+  margin: 0;
+}
+
+#disconnect {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem auto;
+  align-items: center;
+  width: 50%;
+  height: 50vh;
+  background: url('/public/images/import/landscape.png');
+  background-size: contain;
+}
+
+#disconnect .text-dc {
+  background-color: white;
+  width: 50%;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: 900;
+}
