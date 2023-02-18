@@ -157,7 +157,7 @@ footer {
   width: 50%;
   height: 50vh;
   background: url('/public/images/import/landscape.png');
-  background-size: contain;
+  background-size: cover;
 }
 
 #disconnect .text-dc {
@@ -165,5 +165,19 @@ footer {
   width: 50%;
   text-align: center;
   padding: 0.5rem 0;
+  font-weight: 900;
+}
+
+#errorPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem auto;
+  align-items: center;
+  width: 50%;
+  height: 50vh;
+  background: url('/public/images/import/errors.jpg');
+  background-size: cover;
+  color: white;
   font-weight: 900;
 }

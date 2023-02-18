@@ -16,3 +16,8 @@ function getViewDisconnect(){
   require_once __DIR__ . './../view/disconnectView.php';
 }
 
+function getViewErrorPage(){
+  require_once __DIR__ . './../view/errorView.php';
+  die();
+}
+

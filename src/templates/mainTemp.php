@@ -5,12 +5,11 @@ require_once __DIR__ . './../../src/view/includes/head.php';
 ?>
 
 <body>
-  <?php require_once __DIR__ . './../../src/view/includes/nav.php'; ?>
+  <?php require_once __DIR__ . './../../src/view/includes/header.php'; ?>
 
   <!-- // View Register || Login -->
   <?= $content ?? '' ?>
 
-  <!-- footer -->
   <?php require_once __DIR__ . './../../src/view/includes/footer.php'; ?>
   
 </body>
