@@ -20,7 +20,6 @@ try {
         }
     } else {
         getViewHomePage();
-        throw new Exception('Page non disponible');
     }
 } catch (Exception $e) {
     throw new Exception($e->getMessage());
