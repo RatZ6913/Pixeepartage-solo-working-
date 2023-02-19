@@ -9,7 +9,7 @@ $title = 'Profil';
 <div id="formProfil">
   <h1>Votre profil</h1>
   <p class="para">Modifier votre profil</p>
-  <img src="/public/images/uploads/<?= $_SESSION['avatar'] ?? ''; ?>" alt="">
+  <img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? ''; ?>" alt="">
 
   <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST" enctype='multipart/form-data'>  
   <div>

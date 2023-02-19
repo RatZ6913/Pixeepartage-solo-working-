@@ -74,6 +74,8 @@ function getViewProfil(){
       ];
 
       $user->editUserProfil($updateProfil);
+
+      header('location: ./');
     }
   }
   require_once __DIR__ . './../view/profilView.php';

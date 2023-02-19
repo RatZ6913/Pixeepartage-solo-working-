@@ -53,7 +53,6 @@ class Picture extends Database
         $status['status'] = "Sorry, there was an error uploading your file.";
       }
     }
-    return $status;
+    return;
   }
 }
-
