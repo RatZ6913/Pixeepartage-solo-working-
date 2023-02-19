@@ -2,8 +2,6 @@
 if (!session_id()) {
   session_start();
 }
-var_dump($_SESSION);
-// var_dump($_POST);
 
 require_once __DIR__ . './src/models/autoload.php';
 require_once __DIR__ . './src/controllers/mainCont.php';
@@ -31,5 +29,6 @@ try {
     getViewHomePage();
   }
 } catch (Exception $e) {
-  throw new Exception($e->getMessage());
+  throw new Exception($e->getMessage(getViewErrorPage()));
 }
+

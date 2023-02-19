@@ -4,12 +4,6 @@ require_once('./src/models/class/database.class.php');
 class User extends Database
 {
 
-  public int $id;
-  public string $pseudo;
-  public string $mail;
-  private string $password;
-  public string $avatar;
-
   public function __construct()
   {
     parent::__construct();
@@ -45,9 +39,9 @@ class User extends Database
   }
 
   function editUserProfil(array $updateProfil){
-    $editUserProfil = $this->pdo->prepare("UPDATE users SET pseudo = :pseudo, mail = :mail, password = :password WHERE id = :id");
+    $editUserProfil = $this->pdo->prepare("UPDATE users SET pseudo = :pseudo, mail = :mail, password = :password, avatar = :avatar WHERE id = :id");
     $editUserProfil->execute($updateProfil);
     return $updateUserProfil = $editUserProfil->fetch();
   }
-
 }
+

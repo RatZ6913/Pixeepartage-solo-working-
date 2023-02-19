@@ -33,6 +33,7 @@ function getViewProfil()
     $pseudo = $input['pseudo'] ?? '';
     $mail = $input['mail'] ?? '';
     $password = $input['password'] ?? '';
+    $avatar = $_POST['avatar'] ?? '';
 
     if (empty($pseudo)) {
       $errors['pseudo'] = ERROR_INPUT;
@@ -54,23 +55,29 @@ function getViewProfil()
 
     if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
       $password = password_hash($password, PASSWORD_BCRYPT);
+
+      $user = new User();
+      $picture = new Picture();
+
+      $picture->uploadImage();
+
       $updateProfil = [
         'id' => $_SESSION['id'] ?? '',
         'pseudo' => $pseudo,
         'mail' => $mail,
-        'password' => $password
+        'password' => $password,
+        'avatar' => $_FILES['avatar']['name']
       ];
-
-      $user = new User();
       
-      $user->editUserProfil($updateProfil);
       $_SESSION = [
         'pseudo' => $pseudo,
         'mail' => $mail,
+        'avatar' => $_FILES['avatar']['name']
       ];
 
-      header('location : ./?action=editProfil');
+      $user->editUserProfil($updateProfil);
     }
   }
   require_once __DIR__ . './../view/profilView.php';
 }
+

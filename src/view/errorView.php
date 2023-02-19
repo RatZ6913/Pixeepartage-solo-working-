@@ -8,7 +8,7 @@ ob_start();
 <body>
 <a href="/">Retourner à l'accueil</a>
 <div id="errorPage">
-  <p>Désolé, votre page est indisponible !</p>
+  <p>Désolé, une erreur est survenue pendant votre action !</p>
 </div>
 </body>
 

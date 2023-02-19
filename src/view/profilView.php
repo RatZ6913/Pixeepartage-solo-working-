@@ -8,15 +8,16 @@ $title = 'Profil';
 
 <div id="formProfil">
   <h1>Votre profil</h1>
-  <p class="para">Saisissez vos modifications</p>
-  <img src="./public/images/import/logo.png" alt="">
+  <p class="para">Modifier votre profil</p>
+  <img src="/public/images/uploads/<?= $_SESSION['avatar'] ?? ''; ?>" alt="">
 
-  <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">  
+  <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST" enctype='multipart/form-data'>  
   <div>
     <label for="avatar">Avatar :</label>
     <input type="file" name="avatar" id="avatar" value="<?= $_SESSION['avatar'] ?? ''; ?>">
+    <span id="uploadImage">* < 5MO, Gif,JPEG,JPG,GIF</span>
+    <p class="errors"><?= $status['status'] ?? ''; ?></p>
   </div>
-
   <div>
     <label for="pseudo">Pseudo :</label>
     <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>">

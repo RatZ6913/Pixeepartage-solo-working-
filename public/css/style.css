@@ -187,3 +187,8 @@ footer {
   margin: 0px !important;
   padding: 0px;
 }
+
+#uploadImage {
+  font-size: 10px;
+  font-weight: 700;
+}
