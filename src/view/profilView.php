@@ -36,6 +36,7 @@ $title = 'Profil';
   <div>
     <input type="submit" value="Modifier">
   </div>
+  <p class="success"><?= $_SESSION['status']  ?? ''; ?></p>
   </form>
 
   <?php

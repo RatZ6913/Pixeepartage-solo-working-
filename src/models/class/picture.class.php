@@ -15,23 +15,13 @@ class Picture extends Database
 
   public function uploadImage()
   {
-
     $targetFile = $this->targetDir. basename($_FILES['avatar']['name']);
     $uploadCheck = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
     if (!empty($_FILES['avatar'])) {
-      $check = getimagesize($_FILES['avatar']["tmp_name"]);
-
-      if ($check !== false) {
-        $uploadCheck = 1;
-      } else {
-        throw new Exception();
-        $uploadCheck = 0;
-      }
 
       if ($_FILES["avatar"]["size"] > 5000000) {
-        throw new Exception();
         $uploadCheck = 0;
       }
 
@@ -39,7 +29,6 @@ class Picture extends Database
         $imageFileType != "jpg" && $imageFileType != "png" &&
         $imageFileType != "jpeg" && $imageFileType != "gif"
       ) {
-        throw new Exception();
         $uploadCheck = 0;
       }
     }
@@ -48,9 +37,9 @@ class Picture extends Database
       throw new Exception();
     } else {
       if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $targetFile)) {
-        $status['status'] = "The file " . htmlspecialchars(basename($_FILES["avatar"]["name"])) . " has been uploaded.";
+        true;
       } else {
-        $status['status'] = "Sorry, there was an error uploading your file.";
+        throw new Exception();
       }
     }
     return;

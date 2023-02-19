@@ -1,5 +1,7 @@
 <?php
-
+if(!session_id()){
+  session_start();
+}
 require_once __DIR__ . './../models/autoload.php';
 
 // Si USER n'est pas connecté alors, je lui empêche : La Vue Profil (Modification)
@@ -74,8 +76,8 @@ function getViewProfil(){
       ];
 
       $user->editUserProfil($updateProfil);
-
-      header('location: ./');
+      $_SESSION['status'] = 'Modification réussi';
+      header('location: ./?action=editProfil');
     }
   }
   require_once __DIR__ . './../view/profilView.php';

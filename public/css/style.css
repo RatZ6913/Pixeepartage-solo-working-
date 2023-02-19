@@ -188,6 +188,11 @@ footer {
   padding: 0px;
 }
 
+.success {
+  color: green;
+  font-weight: 900;
+}
+
 #uploadImage {
   font-size: 10px;
   font-weight: 700;
