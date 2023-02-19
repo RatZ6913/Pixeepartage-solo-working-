@@ -24,7 +24,6 @@ class User extends Database
     return $checkIfExist = $checkIfUserExist->fetch();
   }
 
-
   public function userRegistered(array $user)
   {
     $userRegistered = $this->pdo->prepare("INSERT INTO users (pseudo, mail, password) VALUES (:pseudo, :mail, :password)");
@@ -44,7 +43,11 @@ class User extends Database
     $getInfoUser->execute();
     return $getInfoUser = $getInfoUser->fetch();
   }
+
+  function editUserProfil(array $updateProfil){
+    $editUserProfil = $this->pdo->prepare("UPDATE users SET pseudo = :pseudo, mail = :mail, password = :password WHERE id = :id");
+    $editUserProfil->execute($updateProfil);
+    return $updateUserProfil = $editUserProfil->fetch();
+  }
+
 }
-
-
-

@@ -14,7 +14,7 @@ $title = 'Profil';
   <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">  
   <div>
     <label for="avatar">Avatar :</label>
-    <input type="file" name="avatar" id="avatar" value="<?= $_SESSION['avatar']; ?>">
+    <input type="file" name="avatar" id="avatar" value="<?= $_SESSION['avatar'] ?? ''; ?>">
   </div>
 
   <div>

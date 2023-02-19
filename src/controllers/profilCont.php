@@ -3,19 +3,20 @@
 require_once __DIR__ . './../models/autoload.php';
 
 // Si USER n'est pas connecté alors, je lui empêche : La Vue Profil (Modification)
-if(empty($_SESSION['pseudo'])){
+if (empty($_SESSION['pseudo'])) {
   header('location: ./');
 }
 
 const ERROR_INPUT = "Ce champ est incorrect";
 const ERROR_INVALID_MAIL = "Mail non valide";
 
-function getViewProfil(){
+function getViewProfil()
+{
 
   $patternLetterNumbers = '/^[a-zA-Z0-9]+$/'; // Pattern : qui accepte seulement lettres et chiffres
   $patternPassword = '/^(?=.*[0-9])(?=.*[A-Z]).{8,20}$/';  // Pattern : 1 Majuscule , 8 caractères minimum, et un chiffre minimum
 
-  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [
       'pseudo' => '',
@@ -51,10 +52,25 @@ function getViewProfil(){
       $errors['password'] = "Une Majuscule, un chiffre, 8 caractères";
     }
 
+    if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
+      $password = password_hash($password, PASSWORD_BCRYPT);
+      $updateProfil = [
+        'id' => $_SESSION['id'] ?? '',
+        'pseudo' => $pseudo,
+        'mail' => $mail,
+        'password' => $password
+      ];
 
+      $user = new User();
+      
+      $user->editUserProfil($updateProfil);
+      $_SESSION = [
+        'pseudo' => $pseudo,
+        'mail' => $mail,
+      ];
+
+      header('location : ./?action=editProfil');
+    }
   }
-
   require_once __DIR__ . './../view/profilView.php';
-
 }
-

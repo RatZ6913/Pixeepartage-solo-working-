@@ -72,7 +72,7 @@ function getViewRegister()
       $user = new User();
       if ($user->checkIfUserExist($pseudo, $mail) !== true) {
         $user->userRegistered($adduser);
-        header('location: index.php?action=login');
+        header('location: ./?action=login');
       }
     }
   }
