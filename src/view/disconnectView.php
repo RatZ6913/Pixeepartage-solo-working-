@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 $title = 'Déconnexion';
 require_once __DIR__ . './../../src/view/includes/head.php';

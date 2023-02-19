@@ -1,6 +1,8 @@
 <?php
 
 ob_start();
+$title = 'Connexion';
+
 ?>
     <link rel="stylesheet" href="./public/css/form.style.css" />
 

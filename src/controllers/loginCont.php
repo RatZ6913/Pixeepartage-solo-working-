@@ -1,6 +1,10 @@
 <?php
-
 require_once __DIR__ . './../models/autoload.php';
+
+// Si USER est connecté alors, je lui empêche : La Vue Connexion et Inscription
+if(!empty($_SESSION['pseudo'])){
+  header('location: ./');
+}
 
 const ERROR_CONNECT = "Vos identifiants ou mots de passes sont incorrects";
 const ERROR_EMPTY = "Veuillez rentrez vos informations";
@@ -42,7 +46,7 @@ function getViewLogin()
 				$_SESSION = [
 					'id' => $user->getInfoUser($pseudo)['id'],
 					'pseudo' => $user->getInfoUser($pseudo)['pseudo'],
-					'email' => $user->getInfoUser($pseudo)['email'],
+					'mail' => $user->getInfoUser($pseudo)['mail'],
 					'avatar' => $user->getInfoUser($pseudo)['avatar']
 				];
 				header('location: ./');

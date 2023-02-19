@@ -181,3 +181,9 @@ footer {
   color: white;
   font-weight: 900;
 }
+
+.errors {
+  color: red;
+  margin: 0px !important;
+  padding: 0px;
+}

@@ -6,7 +6,6 @@ require_once __DIR__ . './../../src/view/includes/head.php';
 
 <body>
    <?php require_once __DIR__ . './../../src/view/includes/header.php'; ?>
-
   <section>
     <figure>
       <img src="/public/images/import/landscape.png" alt="landscape">

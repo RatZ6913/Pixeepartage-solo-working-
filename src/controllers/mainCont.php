@@ -7,16 +7,22 @@ function getViewHomePage()
 
 function getViewPublication()
 {
-  if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
+  if (!empty($_SESSION['pseudo'])) {
     require_once __DIR__ . './../view/postView.php';
   }
 }
 
-function getViewDisconnect(){
+function getViewDisconnect()
+{
+  // Si aucune session USER alors je lui empêche : La Vue Déconnexion
+  if (empty($_SESSION['pseudo'])) {
+    header('location: ./');
+  }
   require_once __DIR__ . './../view/disconnectView.php';
 }
 
-function getViewErrorPage(){
+function getViewErrorPage()
+{
   require_once __DIR__ . './../view/errorView.php';
   die();
 }

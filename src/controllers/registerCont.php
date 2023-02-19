@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__ . './../models/autoload.php';
 
+// Si USER est connecté alors, je lui empêche : La Vue Connexion et Inscription
+if(!empty($_SESSION['pseudo'])){
+  header('location: ./');
+}
+
 const ERROR_INPUT = "Ce champ est incorrect";
 const ERROR_CHECK_PASSWORD = "Vos mots de passes ne correspondent pas";
 const ERROR_INVALID_MAIL = "Mail non valide";

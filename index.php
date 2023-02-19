@@ -2,14 +2,17 @@
 if (!session_id()) {
   session_start();
 }
+// var_dump($_SESSION);
+var_dump($_POST);
 
 require_once __DIR__ . './src/models/autoload.php';
 require_once __DIR__ . './src/controllers/mainCont.php';
 
 try {
 
-  if(!empty($_GET) && isset($_GET)){
+  if (!empty($_GET) && isset($_GET)) {
     $_GET['action'] = $_GET['action'] ?? '';
+
     if (!empty($_GET['action'] === 'login')) {
       require_once __DIR__ . './src/controllers/loginCont.php';
       getViewLogin();
@@ -18,14 +21,15 @@ try {
       getViewRegister();
     } else if (!empty($_GET['action'] === 'disconnect')) {
       getViewDisconnect();
+    } else if (!empty($_GET['action'] === 'editProfil')) {
+      require_once __DIR__ . './src/controllers/profilCont.php';
+      getViewProfil();
     } else {
       throw new Exception(getViewErrorPage());
     }
-
   } else {
     getViewHomePage();
   }
-
 } catch (Exception $e) {
   throw new Exception($e->getMessage());
 }

@@ -1,15 +1,16 @@
 <?php
 
 ob_start();
+$title = 'Inscription';
+
 ?>
-  <link rel="stylesheet" href="./public/css/form.style.css" />
+<link rel="stylesheet" href="./public/css/form.style.css" />
 
 <div id="formConnect">
   <h1>Inscription</h1>
   <p class="para">Saissisez vos informations pour vous connecter</p>
   <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
     <p>Identifiant :</p>
-    <label for="pseudo">Pseudo :</label>
     <input class="input" type="text" name="pseudo" id="pseudo">
     <p class="errors"><?= $errors['pseudo'] ?? ''; ?> </p>
     <p>E-mail :</p>
@@ -25,7 +26,6 @@ ob_start();
 
   </form>
   <div>
-<?php
-$content = ob_get_clean();
-require_once __DIR__ . './../templates/mainTemp.php' ;
-
+    <?php
+    $content = ob_get_clean();
+    require_once __DIR__ . './../templates/mainTemp.php';
