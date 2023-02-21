@@ -27,3 +27,9 @@ function getViewErrorPage()
   die();
 }
 
+function getviewFloat()
+{
+  if ($_GET['action'] !== './') {
+    require_once __DIR__ . './../view/includes/float.php.php';
+  }
+}

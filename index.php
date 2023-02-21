@@ -29,5 +29,6 @@ try {
     getViewHomePage();
   }
 } catch (Exception $e) {
-  throw new Exception($e->getMessage(getViewErrorPage()));
+  throw new Exception($e->getMessage());
 }
+

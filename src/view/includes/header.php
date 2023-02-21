@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="./public/css/style.css">
-
 <header>
   <nav>
     <div>
@@ -17,7 +15,7 @@
       <?php
       endif;
       if (!empty($_SESSION['pseudo']) && isset($_SESSION['pseudo'])) : ?>
-        <li><img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? '' ;?>" alt="Logo Profil">
+        <li><img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? ''; ?>" alt="Logo Profil">
           <a href="./?action=editProfil" class="button"><?= $_SESSION['pseudo'] ?? ''; ?></a>
         </li>
         <li><a href="./?action=disconnect" class="button">Se déconnecter</a></li>

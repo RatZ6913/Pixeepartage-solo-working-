@@ -156,7 +156,7 @@ footer {
   align-items: center;
   width: 50%;
   height: 50vh;
-  background: url('/public/images/import/landscape.png');
+  background-image: url('./../images/import/landscape.png');
   background-size: cover;
 }
 
@@ -176,7 +176,7 @@ footer {
   align-items: center;
   width: 50%;
   height: 50vh;
-  background: url('/public/images/import/errors.jpg');
+  background-image: url('./../images/import/errors.jpg');
   background-size: cover;
   color: white;
   font-weight: 900;
@@ -197,3 +197,13 @@ footer {
   font-size: 10px;
   font-weight: 700;
 }
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 5%;
+  background-image: url('./../images/import/landscape2.png');
+  background-size: cover;
+}
+
+
