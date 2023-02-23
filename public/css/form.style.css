@@ -11,6 +11,12 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+#formProfil {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 #form {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,5 @@
 <?php
-
-if (empty($_GET)) {
+ob_start();
 ?>
   <section>
     <figure>
@@ -14,9 +13,4 @@ if (empty($_GET)) {
   </section>
 
 <?php
-}
-var_dump($_GET);
-var_dump($_SERVER);
-
-?>
-
+$float = ob_get_clean();

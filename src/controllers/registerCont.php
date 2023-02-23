@@ -77,4 +77,5 @@ function getViewRegister()
     }
   }
   require_once __DIR__ . './../view/RegisterView.php';
+	require_once __DIR__ . './../templates/homePageTemp.php';
 }

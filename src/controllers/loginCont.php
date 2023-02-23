@@ -54,4 +54,5 @@ function getViewLogin()
 		}
 	}
 	require_once __DIR__ . './../view/loginView.php';
+	require_once __DIR__ . './../templates/homePageTemp.php';
 }

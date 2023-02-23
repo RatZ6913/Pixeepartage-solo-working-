@@ -1,7 +1,7 @@
 <?php
-
 ob_start();
 ?>
+<link rel="stylesheet" href="./public/css/form.style.css" />
 
 <div id="formConnect">
   <h1>Poster une photo ou vidéo </h1>
@@ -16,5 +16,5 @@ ob_start();
     <input class="button" type="submit" value="Poster">
   </form>
 
-<?=  $content = ob_get_clean();
-
+  <?php
+  $post = ob_get_clean();
