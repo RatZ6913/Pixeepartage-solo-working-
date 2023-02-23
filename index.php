@@ -22,13 +22,15 @@ try {
     } else if (!empty($_GET['action'] === 'editProfil')) {
       require_once __DIR__ . './src/controllers/profilCont.php';
       getViewProfil();
+    } else if (!empty($_GET['action'] === 'pictures')) {
+      // require_once __DIR__ . './src/controllers/pictureCont.php';
+      // getViewPictures();
     } else {
-      throw new Exception(getViewErrorPage());
+      throw new Exception(getViewError());
     }
   } else {
     getViewHomePage();
   }
-} catch (Exception $e) {
-  throw new Exception($e->getMessage());
+} catch (Exception) {
+  throw new Exception(getViewError());
 }
-

@@ -2,14 +2,16 @@
 
 function getViewHomePage()
 {
-  if (isset($_GET['action']) !== 'editProfil' && $_SERVER['PHP_SELF'] === '/index.php' && (!empty($_SESSION['pseudo']))) {
-    require_once __DIR__ . './../view/postView.php';
-  }
+  require_once __DIR__ . './../controllers/pictureCont.php';
+  uploadPicture();
+
   if ($_SERVER['PHP_SELF'] == '/index.php' && empty($_GET)) {
     require_once __DIR__ . './../view/floatView.php';
     require_once __DIR__ . './../templates/homePageTemp.php';
-  } else 
-  getViewErrorPage();
+    
+  } else {
+    getViewError();
+  }
 }
 
 function getViewDisconnect()
@@ -21,7 +23,7 @@ function getViewDisconnect()
   require_once __DIR__ . './../view/disconnectView.php';
 }
 
-function getViewErrorPage()
+function getViewError()
 {
   require_once __DIR__ . './../view/errorView.php';
   die();

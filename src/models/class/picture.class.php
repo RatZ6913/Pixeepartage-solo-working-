@@ -15,13 +15,13 @@ class Picture extends Database
 
   public function uploadImage()
   {
-    $targetFile = $this->targetDir. basename($_FILES['avatar']['name']);
+    $targetFile = $this->targetDir. basename($_FILES['image']['name']);
     $uploadCheck = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    if (!empty($_FILES['avatar'])) {
+    if (!empty($_FILES['image'])) {
 
-      if ($_FILES["avatar"]["size"] > 5000000) {
+      if ($_FILES["image"]["size"] > 5000000) {
         $uploadCheck = 0;
       }
 
@@ -36,7 +36,7 @@ class Picture extends Database
     if ($uploadCheck == 0) {
       throw new Exception();
     } else {
-      if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $targetFile)) {
+      if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
         true;
       } else {
         throw new Exception();
@@ -44,4 +44,9 @@ class Picture extends Database
     }
     return;
   }
+
+  // public function getPicturesDesc(){
+  //   $getPicturesDesc = $this->pdo->prepare("");
+
+  // }
 }

@@ -13,6 +13,7 @@ const ERROR_INPUT = "Ce champ est incorrect";
 const ERROR_INVALID_MAIL = "Mail non valide";
 
 function getViewProfil(){
+  unset($_SESSION['status']);
 
   $patternLetterNumbers = '/^[a-zA-Z0-9]+$/'; // Pattern : qui accepte seulement lettres et chiffres
   $patternPassword = '/^(?=.*[0-9])(?=.*[A-Z]).{8,20}$/';  // Pattern : 1 Majuscule , 8 caractères minimum, et un chiffre minimum
@@ -66,13 +67,13 @@ function getViewProfil(){
         'pseudo' => $pseudo,
         'mail' => $mail,
         'password' => $password,
-        'avatar' => $_FILES['avatar']['name']
+        'avatar' => $_FILES['image']['name']
       ];
       
       $_SESSION = [
         'pseudo' => $pseudo,
         'mail' => $mail,
-        'avatar' => $_FILES['avatar']['name']
+        'avatar' => $_FILES['image']['name']
       ];
 
       $user->editUserProfil($updateProfil);

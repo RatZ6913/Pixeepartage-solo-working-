@@ -202,8 +202,8 @@ footer {
   width: 80%;
   margin: auto;
   padding: 5%;
-  background-image: url('./../images/import/landscape2.png');
-  background-size: cover;
+  /* background-image: url('./../images/import/landscape2.png'); */
+  background-size: contain;
 }
 
 

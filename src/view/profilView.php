@@ -15,7 +15,7 @@ $title = 'Profil';
     <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST" enctype='multipart/form-data'>
       <div>
         <label for="avatar">Avatar :</label>
-        <input type="file" name="avatar" id="avatar" value="<?= $_SESSION['avatar'] ?? ''; ?>">
+        <input type="file" name="image" id="avatar" value="<?= $_SESSION['avatar'] ?? ''; ?>">
         <span id="uploadImage">* < 5MO, Gif,JPEG,JPG,GIF</span>
             <p class="errors"><?= $status['status'] ?? ''; ?></p>
       </div>
@@ -44,4 +44,3 @@ $title = 'Profil';
 <?php
 $content = ob_get_clean();
 require_once __DIR__ . './../templates/homePageTemp.php';
-
