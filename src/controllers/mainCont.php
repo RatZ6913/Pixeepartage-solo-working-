@@ -2,13 +2,14 @@
 
 function getViewHomePage()
 {
+  
   require_once __DIR__ . './../controllers/pictureCont.php';
-  uploadPicture();
+  uploadPost();
 
   if ($_SERVER['PHP_SELF'] == '/index.php' && empty($_GET)) {
     require_once __DIR__ . './../view/floatView.php';
     require_once __DIR__ . './../templates/homePageTemp.php';
-    
+  
   } else {
     getViewError();
   }

@@ -7,7 +7,7 @@ ob_start();
 <div id="formConnect">
   <h1>Poster une photo ou vidéo</h1>
 
-  <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
+  <form id="post" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
     <p>Titre du Post :</p>
     <input class="input" type="text" name="title">
     <p>Description du post :</p>
@@ -17,7 +17,7 @@ ob_start();
     <input class="button" type="submit" value="Poster">
     <p class="errors"><?= $_SESSION['status'] ?? '' ?></p>
   </form>
-  </div>
+</div>
 
-  <?php
-  $post = ob_get_clean();
+<?php
+$post = ob_get_clean();

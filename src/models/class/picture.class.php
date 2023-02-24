@@ -15,7 +15,7 @@ class Picture extends Database
 
   public function uploadImage()
   {
-    $targetFile = $this->targetDir. basename($_FILES['image']['name']);
+    $targetFile = $this->targetDir. basename($_FILES['image']['name']) ?? '';
     $uploadCheck = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
@@ -34,19 +34,20 @@ class Picture extends Database
     }
 
     if ($uploadCheck == 0) {
-      throw new Exception();
+      // throw new Exception();
     } else {
       if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
         true;
       } else {
-        throw new Exception();
+        // throw new Exception();
       }
     }
     return;
   }
 
-  // public function getPicturesDesc(){
-  //   $getPicturesDesc = $this->pdo->prepare("");
-
-  // }
+  public function userPostPicture(array $addPicture){
+    $userPostPicture = $this->pdo->prepare("INSERT INTO pictures VALUES(id_user = :id_user, name = :name, path = :path)");
+    return $userPostPicture->execute();
+  }
 }
+
