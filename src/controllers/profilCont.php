@@ -82,4 +82,5 @@ function getViewProfil(){
     }
   }
   require_once __DIR__ . './../view/profilView.php';
+	require_once __DIR__ . './../templates/homePageTemp.php';
 }

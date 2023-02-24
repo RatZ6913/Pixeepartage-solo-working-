@@ -43,4 +43,3 @@ $title = 'Profil';
 </section>
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . './../templates/homePageTemp.php';

@@ -3,9 +3,7 @@ if (!session_id()) {
   session_start();
 }
 
-// require_once __DIR__ . './../models/class/picture.class.php';
-require_once __DIR__ . './../models/autoload.php';
-
+require_once __DIR__ . './../models/class/picture.class.php';
 
 if (isset($_GET['action']) !== 'editProfil' && $_SERVER['PHP_SELF'] === '/index.php' && (!empty($_SESSION['pseudo']))) {
   require_once __DIR__ . './../view/postView.php';
