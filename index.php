@@ -23,7 +23,6 @@ try {
       require_once __DIR__ . './src/controllers/profilCont.php';
       getViewProfil();
     } else if (!empty($_GET['action'] === 'pictures')) {
-      // require_once __DIR__ . './src/controllers/pictureCont.php';
       // getViewPictures();
     } else {
       throw new Exception(getViewError());
@@ -34,3 +33,5 @@ try {
 } catch (Exception) {
   throw new Exception(getViewError());
 }
+var_dump($_SESSION);
+var_dump($_FILES);

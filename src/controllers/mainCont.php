@@ -2,6 +2,7 @@
 
 function getViewHomePage()
 {
+  require_once __DIR__ . './../controllers/postCont.php';
   getViewPost();
 
   if ($_SERVER['PHP_SELF'] == '/index.php' && empty($_GET)) {
@@ -27,8 +28,3 @@ function getViewError()
   die();
 }
 
-function getViewPost()
-{
-  require_once __DIR__ . './../view/postView.php';
-  // uploadPost();
-}

@@ -10,23 +10,23 @@ $title = 'Profil';
   <div id="formProfil">
     <h1>Votre profil</h1>
     <p class="para">Modifier votre profil</p>
-    <img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? ''; ?>" alt="">
+    <img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? 'default_avatar.png'; ?>" alt="">
 
     <form id="form" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST" enctype='multipart/form-data'>
       <div>
         <label for="avatar">Avatar :</label>
-        <input type="file" name="image" id="avatar" value="<?= $_SESSION['avatar'] ?? ''; ?>">
+        <input type="file" name="post" id="avatar" value="<?= $_SESSION['avatar'] ?? 'default_avatar.png'; ?>">
         <span id="uploadImage">* < 5MO, Gif,JPEG,JPG,GIF</span>
             <p class="errors"><?= $status['status'] ?? ''; ?></p>
       </div>
       <div>
         <label for="pseudo">Pseudo :</label>
-        <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>">
+        <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo'] ?? ''; ?>">
         <p class="errors"><?= $errors['pseudo'] ?? '' ?></p>
       </div>
       <div>
         <label for="mail">Mail :</label>
-        <input type="mail" name="mail" id="mail" value="<?= $_SESSION['mail']; ?>">
+        <input type="mail" name="mail" id="mail" value="<?= $_SESSION['mail'] ?? ''; ?>">
         <p class="errors"><?= $errors['mail'] ?? '' ?></p>
       </div>
       <div>

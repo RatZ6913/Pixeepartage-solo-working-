@@ -59,21 +59,25 @@ function getViewProfil(){
 
       $user = new User();
       $picture = new Picture();
-
       $picture->uploadImage();
+
+      $mimeType = explode('/', $_FILES['post']['type'])[1];
+      if($mimeType == 'jpeg'){
+        $mimeType = str_replace("e", "", $mimeType);
+      }
 
       $updateProfil = [
         'id' => $_SESSION['id'] ?? '',
         'pseudo' => $pseudo,
         'mail' => $mail,
         'password' => $password,
-        'avatar' => $_FILES['image']['name']
+        'avatar' => substr(md5($_FILES['post']['name']), 0, 8) . '.' . $mimeType
       ];
       
       $_SESSION = [
         'pseudo' => $pseudo,
         'mail' => $mail,
-        'avatar' => $_FILES['image']['name']
+        'avatar' => substr(md5($_FILES['post']['name']), 0, 8) . '.' . $mimeType
       ];
 
       $user->editUserProfil($updateProfil);
