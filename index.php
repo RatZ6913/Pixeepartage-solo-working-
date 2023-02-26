@@ -23,7 +23,7 @@ try {
       require_once __DIR__ . './src/controllers/profilCont.php';
       getViewProfil();
     } else if (!empty($_GET['action'] === 'pictures')) {
-      // getViewPictures();
+      getViewPictures();
     } else {
       throw new Exception(getViewError());
       // throw new Exception();

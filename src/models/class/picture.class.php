@@ -53,4 +53,10 @@ class Picture extends Database
     $userPostPicture = $this->pdo->prepare("INSERT INTO pictures (id_user, name, path) VALUES (:id_user, :name, :path)");
     return $userPostPicture->execute($postPicture);
   }
+
+  public function getAllPictures(){
+    $getAllPictures = $this->pdo->prepare("SELECT * FROM pictures");
+    $getAllPictures->execute();
+    return $getPictures = $getAllPictures->fetchAll();
+  }
 }
