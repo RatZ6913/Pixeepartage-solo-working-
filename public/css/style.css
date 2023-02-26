@@ -202,7 +202,7 @@ footer {
   width: 80%;
   margin: auto;
   padding: 5%;
-  /* background-image: url('./../images/import/landscape2.png'); */
-  background-size: contain;
+  background-image: url('./../images/import/landscape2.jpg');
+  background-size: cover;
 }
 

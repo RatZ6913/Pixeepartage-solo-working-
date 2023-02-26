@@ -14,6 +14,7 @@
         <li><a href="./?action=register" class="button">S'inscrire</a></li>
       <?php
       endif;
+      
       if (!empty($_SESSION['pseudo']) && isset($_SESSION['pseudo'])) : ?>
         <li><img src="./public/images/uploads/<?= $_SESSION['avatar'] ?? 'default_avatar.png'; ?>" alt="Logo Profil">
           <a href="./?action=editProfil" class="button"><?= $_SESSION['pseudo'] ?? ''; ?></a>

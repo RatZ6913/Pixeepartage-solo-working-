@@ -25,6 +25,5 @@ function getViewDisconnect()
 function getViewError()
 {
   require_once __DIR__ . './../view/errorView.php';
-  // die();
+  die();
 }
-

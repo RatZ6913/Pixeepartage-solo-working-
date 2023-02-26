@@ -11,5 +11,4 @@ ob_start();
 </div>
 </body>
 
-
 <?= $content = ob_get_clean();

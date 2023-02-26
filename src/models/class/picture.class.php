@@ -4,7 +4,6 @@ require_once('./src/models/class/database.class.php');
 
 class Picture extends Database
 {
-
   public $targetDir;
 
   public function __construct()
@@ -38,18 +37,19 @@ class Picture extends Database
     }
 
     if ($uploadCheck == 0) {
-      // throw new Exception();
+      throw new Exception();
     } else {
       if (move_uploaded_file($_FILES["post"]["tmp_name"], $targetFile)) {
         true;
       } else {
-        // throw new Exception();
+        throw new Exception();
       }
     }
     return;
   }
 
-  public function userPostPicture(array $postPicture){
+  public function userPostPicture(array $postPicture)
+  {
     $userPostPicture = $this->pdo->prepare("INSERT INTO pictures (id_user, name, path) VALUES (:id_user, :name, :path)");
     return $userPostPicture->execute($postPicture);
   }
