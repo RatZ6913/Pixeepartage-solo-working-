@@ -214,6 +214,10 @@ footer {
   margin: 1rem auto;
 }
 
+.box-pictures p {
+  text-align: center;
+}
+
 .content-pictures {
   width: 100%;
   height: 100%;

@@ -12,6 +12,10 @@ $title = 'Photos';
     <?php foreach ($arrPictures as $showPicture) { ?>
       <div class="box-pictures">
         <img src="<?= $showPicture['path'] . $showPicture['name']; ?>" alt="" class="content-pictures">
+        <?php
+        if (!empty($_SESSION['pseudo']) !== '') : ?>
+          <p><?= $_SESSION['pseudo'] ?? ''; ?></p>
+        <?php endif; ?>
       </div>
     <?php } ?>
   </div>
