@@ -24,11 +24,15 @@ function getViewPost()
     $description = $input['description'] ?? '';
 
     if (empty($title)) {
-      $errors['title'] = 'Erreur de champ';
+      $errors['errors'] = 'Erreur de champ';
     }
 
     if (empty($description)) {
-      $errors['description'] = 'Erreur de champ';
+      $errors['errors'] = 'Erreur de champ';
+    }
+
+    if (empty($_FILES)) {
+      $errors['errors'] = 'Erreur de champ';
     }
 
     if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
@@ -38,14 +42,18 @@ function getViewPost()
         $fileType = explode('/', $_FILES['post']['type'])[0];
 
         if ($fileType == 'image') {
-          $picture = new Picture();
-          $picture->uploadImage() ?? '';
 
-          $hashNamePicture = substr(md5($_FILES['post']['name']), 0, 8) ?? '';
+          $picture = new Picture();
+          $picture->uploadImage();
+
+          $mimeType = explode('/', $_FILES['post']['type'])[1];
+          if($mimeType == 'jpeg'){
+            $mimeType = str_replace("e", "", $mimeType);
+          }
 
           $postPicture = [
-            'id_user' => $_SESSION['id'] ?? '',
-            'name' => $hashNamePicture ?? '',
+            'id_user' => $_SESSION['id_user'] ?? '',
+            'name' => substr(md5($_FILES['post']['name']), 0, 8) . '.' . $mimeType,
             'path' => $picture->targetDir
           ];
           $picture->userPostPicture($postPicture);
@@ -53,10 +61,11 @@ function getViewPost()
       }
 
       unset($_SESSION['status']);
-      // header('location: ./#post');
+      header('location: ./#post');
     } else {
       $_SESSION['status'] = 'Erreur de soumission';
       header('location: ./#post');
     }
   }
 }
+

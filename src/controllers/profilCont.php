@@ -67,20 +67,22 @@ function getViewProfil(){
       }
 
       $updateProfil = [
-        'id' => $_SESSION['id'] ?? '',
+        'id' => $_SESSION['id_user'],
         'pseudo' => $pseudo,
         'mail' => $mail,
         'password' => $password,
         'avatar' => substr(md5($_FILES['post']['name']), 0, 8) . '.' . $mimeType
       ];
+
+      $user->editUserProfil($updateProfil);
       
       $_SESSION = [
+        'id_user' => $user->getInfoUser($pseudo)['id'],
         'pseudo' => $pseudo,
         'mail' => $mail,
         'avatar' => substr(md5($_FILES['post']['name']), 0, 8) . '.' . $mimeType
       ];
 
-      $user->editUserProfil($updateProfil);
       $_SESSION['status'] = 'Modification réussi';
       header('location: ./?action=editProfil');
     }

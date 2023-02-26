@@ -7,6 +7,7 @@ require_once __DIR__ . './src/models/autoload.php';
 require_once __DIR__ . './src/controllers/mainCont.php';
 
 try {
+  // throw new Exception();
 
   if (!empty($_GET) && isset($_GET)) {
     $_GET['action'] = $_GET['action'] ?? '';
@@ -25,13 +26,16 @@ try {
     } else if (!empty($_GET['action'] === 'pictures')) {
       // getViewPictures();
     } else {
-      throw new Exception(getViewError());
+      // throw new Exception(getViewError());
+      throw new Exception();
     }
   } else {
     getViewHomePage();
   }
-} catch (Exception) {
-  throw new Exception(getViewError());
+} catch (Exception $e) {
+  // throw new Exception(getViewError());
+  throw new Exception('Erreur :' .$e->getMessage());
 }
+
+
 var_dump($_SESSION);
-var_dump($_FILES);

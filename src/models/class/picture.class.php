@@ -28,11 +28,11 @@ class Picture extends Database
       }
 
       if (
-        $imageMimeType != "jpg" && $imageMimeType != "png" &&
-        $imageMimeType != "jpeg" && $imageMimeType != "gif"
+        $imageMimeType !== "jpg" && $imageMimeType !== "png" &&
+        $imageMimeType !== "jpeg" && $imageMimeType !== "gif"
       ) {
         $uploadCheck = 0;
-      } else if($imageMimeType == 'jpeg'){
+      } else if ($imageMimeType == 'jpeg') {
         $imageMimeType = str_replace("e", "", $imageMimeType);
       }
     }
@@ -49,8 +49,8 @@ class Picture extends Database
     return;
   }
 
-  public function userPostPicture(array $addPicture){
-    $userPostPicture = $this->pdo->prepare("INSERT INTO pictures VALUES(id_user = :id_user, name = :name, path = :path)");
-    return $userPostPicture->execute();
+  public function userPostPicture(array $postPicture){
+    $userPostPicture = $this->pdo->prepare("INSERT INTO pictures (id_user, name, path) VALUES (:id_user, :name, :path)");
+    return $userPostPicture->execute($postPicture);
   }
 }

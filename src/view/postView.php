@@ -2,7 +2,6 @@
 ob_start();
 ?>
 <link rel="stylesheet" href="./public/css/form.style.css" />
-<link rel="stylesheet" href="./public/css/style.css" />
 
 <div id="formConnect">
   <h1>Poster une photo ou vidéo</h1>
